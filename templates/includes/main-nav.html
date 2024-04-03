@@ -12,9 +12,9 @@
             </a>
             <div class="dropdown-menu border-0 border-black" aria-labelledby="shop-link">
                 <a href="{% url 'products' %}" class="dropdown-item">All products</a>
-                <a href="" class="dropdown-item">Food</a>
-                <a href="" class="dropdown-item">Drinks</a>
-                <a href="" class="dropdown-item">Sweets and snacks</a>
+                <a href="{% url 'products' %}?category=food" class="dropdown-item">Food</a>
+                <a href="{% url 'products' %}?category=drinks" class="dropdown-item">Drinks</a>
+                <a href="{% url 'products' %}?category=sweets_and_snacks" class="dropdown-item">Sweets and snacks</a>
             </div>
         </li>
 
