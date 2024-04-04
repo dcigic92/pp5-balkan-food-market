@@ -22,3 +22,8 @@ body {
 .border-black {
     border: 1px solid black;
 }
+
+.update-qty,
+.remove-item {
+    cursor: pointer;
+}
