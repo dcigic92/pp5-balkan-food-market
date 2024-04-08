@@ -34,7 +34,7 @@ class Order(models.Model):
         Update total cost each time a line item is added,
         accounting for delivery costs.
         """
-        self.cart_cost = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        self.cart_cost = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.cart_cost < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = settings.STANDARD_DELIVERY
         else:
