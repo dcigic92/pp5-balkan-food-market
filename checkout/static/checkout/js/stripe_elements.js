@@ -60,35 +60,37 @@ form.addEventListener('submit', function(ev) {
         'save_info': saveInfo,
     };
     var url = '/checkout/cache_checkout_data/';
+    var firstName = $.trim(form.first_name.value);
+    var lastName = $.trim(form.last_name.value);
+    var fullName = firstName + " " + lastName;
 
     $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
                 billing_details: {
-                    first_name: $.trim(form.first_name.value),
-                    last_name: $.trim(form.last_name.value),
+                    name: fullName,
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
                     address:{
                         line1: $.trim(form.street_address1.value),
                         line2: $.trim(form.street_address2.value),
                         city: $.trim(form.town_or_city.value),
-                        county: $.trim(form.county.value),
-                        eircode: $.trim(form.eircode.value),
+                        country: 'IE',
+                        state: $.trim(form.county.value),
                     }
                 }
             },
             shipping: {
-                first_name: $.trim(form.first_name.value),
-                last_name: $.trim(form.last_name.value),
+                name: fullName,
                 phone: $.trim(form.phone_number.value),
                 address: {
                     line1: $.trim(form.street_address1.value),
                     line2: $.trim(form.street_address2.value),
                     city: $.trim(form.town_or_city.value),
-                    county: $.trim(form.county.value),
-                    eircode: $.trim(form.eircode.value),
+                    country: 'IE',
+                    postal_code: $.trim(form.eircode.value),
+                    state: $.trim(form.county.value),
                 }
             },
         }).then(function(result) {
@@ -104,7 +106,7 @@ form.addEventListener('submit', function(ev) {
                 $('#submit-button').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
-                    form.submit();
+                    //form.submit();
                 }
             }
         });
