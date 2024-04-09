@@ -5,10 +5,17 @@ from django.db.models import Sum
 from django.conf import settings
 
 from products.models import Product
+from profiles.models import UserProfile
 
+
+COUNTRY_CHOICES = (
+        ('Ireland', 'Ireland'),
+    )
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='orders')
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -16,7 +23,8 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
-    county = models.CharField(max_length=80, null=True, blank=False)
+    county = models.CharField(max_length=80, null=False, blank=False)
+    country = models.CharField(max_length=80, choices=COUNTRY_CHOICES, default='Ireland', editable=False)
     eircode = models.CharField(max_length=20, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
@@ -46,9 +54,11 @@ class Order(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the order number
+        Override the original save method to set country and the order number
         if it hasn't been set already.
         """
+        if not self.country:
+            self.country = 'Ireland'
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
