@@ -9,7 +9,12 @@ from products.models import Product
 def shopping_cart(request):
     """ A view to show shopping cart contents """
 
-    return render(request, 'cart/cart.html')
+    template = 'cart/cart.html'
+    context = {
+        'on_shopping_cart_page': True
+    }
+
+    return render(request, template, context)
 
 
 def add_to_cart(request, item_id):
