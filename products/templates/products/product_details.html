@@ -29,6 +29,11 @@
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                        </small>
+                    {% endif %}
                     <p class="lead mb-0 text-left mt-3">Product description:</p>
                     <p class="mt-1">{{ product.description }}</p>
                     <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
