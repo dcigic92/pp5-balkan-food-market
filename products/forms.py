@@ -1,6 +1,7 @@
 from django import forms
-from .models import Product, Category
+from .models import Product, Category, Rating
 from .widgets import CustomClearableFileInput
+from django.core.exceptions import ValidationError
 
 
 class ProductForm(forms.ModelForm):
@@ -19,3 +20,15 @@ class ProductForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-dark rounded-0'
+
+
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['rating']
+
+    def clean_rating(self):
+        rating = self.cleaned_data['rating']
+        if rating < 1 or rating > 5:
+            raise forms.ValidationError('Rating must be between 1 and 5.')
+        return rating

@@ -24,16 +24,46 @@
                     <p class="text-muted mb-0 mt-2 text-left">Brand: {{ product.brand }}</p>
                     <p class="text-muted mb-0 text-left">Country of origin: {{ product.country_of_origin }}</p>
                     <p class="lead mb-0 mt-2 text-left font-weight-bold">€{{ product.price }}</p>
-                    {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    <p class="lead mb-0 text-left mt-3 mb-2">Product rating:</p>
+                    {% if average_rating %}
+                        <p class="text-muted">
+                            <i class="fas fa-star mr-1"></i>{{ average_rating|floatformat:1 }}
+                        </p>
                     {% else %}
-                        <small class="text-muted">No Rating</small>
+                        <p class="text-muted">No Ratings</p>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        {% if user_rating %}
+                        <!-- Button to remove user's rating -->
+                        <form action="{% url 'remove_rating' product_id=product.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-warning btn-sm">Remove Your Rating</button>
+                        </form>
+                        {% else %}
+                        <!-- Rating form for the user -->
+                        <form id="rating-form" action="{% url 'rate_product' product_id=product.id %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="{{ form.rating.id_for_label }}" class="lead mb-2 text-left">Rate product:</label>
+                                <select name="rating" id="{{ form.rating.id_for_label }}" class="form-control">
+                                    <option value="" selected disabled>Select rating</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-dark btn-sm">Submit Rating</button>
+                        </form>
+                        {% endif %}
                     {% endif %}
                     {% if request.user.is_superuser %}
-                        <small class="ml-3">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        </small>
+                        <p class="lead mb-0 text-left mt-3">Product managment:</p>
+                            <p class="ml-3">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </p>
                     {% endif %}
                     <p class="lead mb-0 text-left mt-3">Product description:</p>
                     <p class="mt-1">{{ product.description }}</p>
@@ -89,4 +119,26 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+<script>
+    $(document).ready(function() {
+        $('#submit-rating-btn').on('click', function(event) {
+            event.preventDefault();
+            var formData = $('#rating-form').serialize();
+            $.ajax({
+                url: $('#rating-form').attr('action'),
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        // Reload the page to reflect the updated rating
+                        location.reload();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Failed to submit rating: ' + error);
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}
