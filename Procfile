@@ -1,0 +1,1 @@
+web: gunicorn balkan_food_market.wsgi:application
