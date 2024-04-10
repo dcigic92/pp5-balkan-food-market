@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="text-center mb-4">Newsletter</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <p>Subscribe to our newsletter</p>
+            <form method="post" action="{% url 'newsletter' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Enter Email to Subscribe">
+                <button class="btn btn-dark right" type="submit">Submit</button>
+            </div>  
+        </div>
+    </div>
+</div>
+
+{% endblock %}
