@@ -33,6 +33,21 @@ body {
     color: black;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.card-img-top {
+    height: 300px;
+    width: initial;
+}
+
 /* bootstrap toasts */
 
 .message-container {
