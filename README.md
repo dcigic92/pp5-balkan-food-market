@@ -59,6 +59,18 @@ In this project I used google's font ***Roboto Condensed***.
 
 - Email confirmation for orders and registration.
 
+## Web Marketing
+
+### Newsletter
+
+I used Mailchimp to create newsletter for users to subscribe. The Page owner can send content to the subscribers.
+
+### Facebook
+
+Balkan Food Market use facebook for marketing purposes to post adverts and relevant content for users to engage.
+
+![facebook](media/facebook_balkan_food_market)
+
 
 ## Technologies Used
 - Python
@@ -206,10 +218,13 @@ I followed Agile methodology for this project, fostering flexibility and regular
 
 ## Credits
 
+### Content
+
+- Text for about page taken from [Adriatic](https://adriatictaste.ie/) and edited.
+
 ### Code
   
 - Some parts of the code were inspired by Project Boutique Ado from [Code institute](https://learn.codeinstitute.net/dashboard).
-
 
 
 ## Acknowledgements
