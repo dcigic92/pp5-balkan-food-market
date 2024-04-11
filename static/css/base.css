@@ -6,21 +6,13 @@ body {
     font-family: 'Roboto Condensed';
 }
 
+/* from Bulma */
 .icon {
     align-items: center;
     display: inline-flex;
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.border-black {
-    border: 1px solid black;
 }
 
 .update-qty,
@@ -96,4 +88,35 @@ a:hover {
     background-color: #dc3545;
     border-color: #dc3545;
     border-radius: 0;
+}
+
+.wrapper {
+    padding-bottom: 50px;
+}
+
+@media (max-width: 991px) {
+
+    .nav-link {
+        padding: 0.15rem;
+    }
+
+    .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 450px) {
+
+    footer {
+        height: 80px;
+    }
+
+    .wrapper {
+        padding-bottom: 100px;
+    }
 }
