@@ -17,7 +17,7 @@
                 <hr class="mt-1 mb-3">
             </div>
         </div>
-        {% if cart_items  and not on_profile_page and not on_shopping_cart_page %}
+        {% if cart_items and not on_profile_page and not on_shopping_cart_page and not on_newsletter_page%}
             <p class="logo-font bg-white text-black py-1">Your cart ({{ product_count }})</p>
             <div class="cart-notification-wrapper">
                 {% for item in cart_items %}

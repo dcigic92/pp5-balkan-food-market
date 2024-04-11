@@ -16,6 +16,7 @@ LIST_ID = settings.MAILCHIMP_EMAIL_LIST_ID
 def newsletter(request):
     """ A view to allow users to subscribe to 
     email newsletter using Mailchimp. """
+
     if request.method == "POST":
         email = request.POST['email']
         mailchimp = Client()
@@ -36,4 +37,8 @@ def newsletter(request):
             error_message = json.loads(error.text)['detail']
             messages.error(request, f'{error_message}')
 
-    return render(request, "newsletter/newsletter.html")
+    context = {
+        'on_newsletter_page': True
+    }
+
+    return render(request, "newsletter/newsletter.html", context)
