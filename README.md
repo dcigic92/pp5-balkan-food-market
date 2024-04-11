@@ -2,11 +2,45 @@
 
 **This is a Django-based e-commerce project**
 
-![Homepage]()
+![Homepage](assets/images/homepage.png)
 
 ***[Live website](https://balkan-food-market-90ac941cd27b.herokuapp.com/)*** created by **Dino Cigic**.
 
 ***
+
+## Table of Contents
+
+- [User experience](#user-experience)
+    - [Project goals](#project-goals)
+    - [User stories](#user-stories)
+- [Design](#design)
+    - [Colours](#colours)
+    - [Typography](#typography)
+- [Features](#features)
+    - [Existing features](#existing-features)
+    - [Features left to implement](#features-left-to-implement)
+- [Business Model](#business-model)
+- [Web Marketing](#web-marketing)
+    - [Newsletter](#newsletter)
+    - [Facebook](#facebook)
+- [Technologies Used](#technologies-used)
+- [Agile Development Process](#agile-development-process)
+- [Setup](#setup)
+- [Deployment](#deployment)
+    - [Heroku](#heroku)
+- [Testing](#testing)
+    - [Validation](#validation)
+    - [Manual Testing](#manual-testing)
+        - [Account Registration](#account-registration)
+        - [Navigation](#navigation)
+        - [Checkout](#pcheckout)
+        - [CRUD](#crud)
+        - [Subscription](#subscription)
+- [Credits](#credits)
+    - [Content](#content)
+    - [Images](#images)
+    - [Code](#code)
+- [Acknowledgements](#acknowledgements)
 
 ## User experience
 
@@ -69,6 +103,12 @@ In this project I used google's font ***Roboto Condensed***.
 
 - Email confirmation for orders and registration.
 
+
+## Business Model
+
+The business model for this store would be a B2C (Business to Customer) model, as the business would be selling products directly to the customer.
+
+
 ## Web Marketing
 
 ### Newsletter
@@ -77,7 +117,7 @@ I used Mailchimp to create newsletter for users to subscribe. The Page owner can
 
 ### Facebook
 
-Balkan Food Market use facebook for marketing purposes to post adverts and relevant content for users to engage.
+Balkan Food Market use [facebook](https://www.facebook.com/profile.php?id=61558615940125/) for marketing purposes to post adverts and relevant content for users to engage.
 
 ![facebook](assets/images/facebook_balkan_food_market.png)
 
@@ -219,7 +259,7 @@ I followed Agile methodology for this project, fostering flexibility and regular
 |SuperUser can delete products|Pass|
 ---
 
-#### NEWSLETTER
+#### Subscription
 | Test |Result |
 |--|--|
 |User can subscribe to newsletter|Pass|
@@ -231,6 +271,13 @@ I followed Agile methodology for this project, fostering flexibility and regular
 ### Content
 
 - Text for about page taken from [Adriatic](https://adriatictaste.ie/) and edited.
+
+### Images 
+
+- [Smoki](https://smoki.rs/wp-content/uploads/2021/02/Smoki_Original150g@2x.png)
+- [Cockta](https://images.squarespace-cdn.com/content/v1/603a9ae925c288203141fbe2/1615809956925-F7JXF4SUOW8OK7DYXFIH/08+New+Cockta+1.5+l.jpg?format=1500w)
+- [Domacica](https://www.croatianstore.ie/wp-content/uploads/2020/11/Biscuits-Kras-Domacica-Original-300g-1.png)
+- [Pasteta](https://stajedem.rs/images/proizvodi/750x750-2139)
 
 ### Code
   
