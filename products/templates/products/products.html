@@ -48,7 +48,7 @@
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product_details' product.id %}">
-                                    <img class="card-img-top" src="{{ MEDIA_URL }}default_image" alt="{{ product.name }}">
+                                    <img class="card-img-top" src="https://balkan-food-market.s3.eu-north-1.amazonaws.com/media/no_img_available.jpg" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
