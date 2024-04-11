@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://balkan-food-market-90ac941cd27b.herokuapp.com/sitemap.xml

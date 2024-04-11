@@ -43,6 +43,10 @@ footer {
     width: initial;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 /* bootstrap toasts */
 
 .message-container {
