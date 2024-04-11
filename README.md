@@ -38,9 +38,52 @@ Used only white color and Bootstrap's dark class.
 In this project I used google's font ***Roboto Condensed***.
 
 
+## Features
+
+### Existing features
+
+- Account registration, login and logout.
+- View of all products on the homepage.
+- Option to view products by category.
+- Option to search site.
+- Option to sort products by price, rating, name, and category.
+- Detailed view of each product.
+- Option to rate products and remove ratings for registered users.
+- Option add products in cart, update them and remove.
+- Option to buy products with secure payment.
+- Option to subscribe to newsletter.
+- Option to save informations in user's profile.
+- Option to add, edit and delete products for store owner.
+
+### Features left to implement
+
+- Email confirmation for orders and registration.
+
+
+## Technologies Used
+- Python
+- Django
+- PostgreSQL
+- HTML
+- CSS
+- Javascript
+- Bootstrap 4
+- [Elephant SQL](https://www.elephantsql.com/)
+- [AWS](https://aws.amazon.com/)
+- [Heroku](https://heroku.com/)
+- [Mailchimp](https://mailchimp.com/)
+- [Stripe](https://stripe.com/)
+- [Git](https://git-scm.com/)
+- [Github](https://github.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [W3Schools](https://www.w3schools.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+
+
 ## Agile Development Process
 
 I followed Agile methodology for this project, fostering flexibility and regular progress updates. This approach allowed me to deliver increments efficiently. I used Github Kanban board for this project and created Kanban board with four columns: "To Do" "In Progress" "Done" and "Left to implement". Project contains 23 user stories. Link to project's user stories [here](https://github.com/users/dcigic92/projects/6).
+
 
 ## Setup
 
@@ -160,11 +203,14 @@ I followed Agile methodology for this project, fostering flexibility and regular
 |User can subscribe to newsletter|Pass|
 ---
 
+
 ## Credits
 
 ### Code
   
 - Some parts of the code were inspired by Project Boutique Ado from [Code institute](https://learn.codeinstitute.net/dashboard).
+
+
 
 ## Acknowledgements
 
