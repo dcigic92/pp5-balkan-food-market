@@ -104,6 +104,10 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 WSGI_APPLICATION = 'balkan_food_market.wsgi.application'

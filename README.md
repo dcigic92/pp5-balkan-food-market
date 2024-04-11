@@ -69,7 +69,7 @@ I used Mailchimp to create newsletter for users to subscribe. The Page owner can
 
 Balkan Food Market use facebook for marketing purposes to post adverts and relevant content for users to engage.
 
-![facebook](media/facebook_balkan_food_market)
+![facebook](assets/images/facebook_balkan_food_market.png)
 
 
 ## Technologies Used
