@@ -1,3 +1,34 @@
+## User experience
+
+### Project goals
+- Project goal was to create e-commerce application for all people from Balkans in Ireland and everyone interested to try balkan food.
+
+### User stories
+
+- As a Site User I can register an account so that I can interact with the site content.
+- As a Site user I can login to the site so that I can access my account.
+- As a Site user I can logout from the site so that my account is kept secure.
+- As a shopper I can navigate around the site so that I can easily view the desired content.
+- As a shopper I want to view a list of products so that I can select some to purchase.
+- As a shopper I want to view individual product details so that I can view the product image, price, description and product rating.
+- As a shopper I can search for a product by name or description so that I can find a specific product I'd like to purchase.
+- As a shopper I can choose product categories so that I can easier find relevant products.
+- As a shopper I can sort the products so that I can easily find desired product based on price, ratings, category or title.
+- As a shopper I want to view items in my cart so that I can identify the total cost of my purchase and all items I will receive.
+- As a shopper I want to easily view the cost of my shopping cart at any time so that I can avoid spending too much.
+- As a shopper I can add products to my shopping cart so that I can make my purchase.
+- As a shopper I can update quantity of the products in my cart so that I can make changes before I checkout.
+- As a shopper, I want to easily enter my payment information so that I can check out quickly and with little hassle.
+- As a shopper, I want to easily enter my payment information so that I can check out quickly and with little hassle.
+- As a shopper I can view confirmation of my purchase so that I can verify that I haven't made any mistakes.
+- As a shopper I want to feel my personal and payment information is safe and secure so that I can confidently provide the needed information to make a purchase.
+- As a site user I want to have a personalized user profile so that I can view my personal order history and save my payment information.
+- As a store owner I can add a product so that I can update my inventory.
+- As a store owner I can edit a product so that I can change product prices, descriptions, images and other product informations.
+- As a store owner I can delete a product so that I can remove products that are no longer for sale.
+- As a shopper I can rate the products I bought so that I can give my feedback.
+- As a shopper I can sign up for a newsletter so that I can keep up to date with new products and promotions.
+
 ## Design
 
 ### Colours
