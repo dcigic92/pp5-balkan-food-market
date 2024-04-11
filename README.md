@@ -1,3 +1,13 @@
+# Balkan Food Market
+
+**This is a Django-based e-commerce project**
+
+![Homepage]()
+
+***[Live website](https://balkan-food-market-90ac941cd27b.herokuapp.com/)*** created by **Dino Cigic**.
+
+***
+
 ## User experience
 
 ### Project goals
