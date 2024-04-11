@@ -13,18 +13,6 @@ SERVER = settings.MAILCHIMP_DATA_CENTER
 LIST_ID = settings.MAILCHIMP_EMAIL_LIST_ID
 
 
-def index(request):
-    """ A view to return the index page """
-
-    return render(request, 'home/index.html')
-
-
-def about(request):
-    """ A view to return the index page """
-
-    return render(request, 'home/about.html')
-
-
 def newsletter(request):
     """ A view to allow users to subscribe to 
     email newsletter using Mailchimp. """
@@ -48,4 +36,4 @@ def newsletter(request):
             error_message = json.loads(error.text)['detail']
             messages.error(request, f'{error_message}')
 
-    return render(request, "home/newsletter.html")
+    return render(request, "newsletter/newsletter.html")
