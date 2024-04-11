@@ -1,3 +1,16 @@
+## Design
+
+### Colours
+Used only white color and Bootstrap's dark class.
+
+### Typography
+In this project I used google's font ***Roboto Condensed***.
+
+
+## Agile Development Process
+
+I followed Agile methodology for this project, fostering flexibility and regular progress updates. This approach allowed me to deliver increments efficiently. I used Github Kanban board for this project and created Kanban board with four columns: "To Do" "In Progress" "Done" and "Left to implement". Project contains 23 user stories. Link to project's user stories [here](https://github.com/users/dcigic92/projects/6).
+
 ## Setup
 
 1. **Clone the repository:**
