@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.db.models import Q
+from django.db.models import Q, Avg
 from django.db.models.functions import Lower
 from .models import Product, Category, Rating
 from .forms import ProductForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from django.db.models import Avg
 
 
 def all_products(request):
@@ -25,9 +24,13 @@ def all_products(request):
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':
-                sortkey = 'name'
+                # Annotate with lowercase name for case-insensitive sorting
+                products = products.annotate(lower_name=Lower('name'))
+                sortkey = 'lower_name'
             elif sortkey == 'category':
-                sortkey = 'category__name'
+                # Annotate with lowercase category name for case-insensitive sorting
+                products = products.annotate(lower_category_name=Lower('category__name'))
+                sortkey = 'lower_category_name'
             elif sortkey == 'rating':
                 sortkey = 'average_rating'
             if 'direction' in request.GET:
@@ -52,11 +55,19 @@ def all_products(request):
     # Generate the current sorting information for display in the template
     current_sorting = f'{sort}_{direction}'
 
+    # Products with status == 0
+    status_zero_products = products.filter(status=0)
+
+    # Count the number of products with status == 0
+    status_zero_count = status_zero_products.count()
+
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'status_zero_products': status_zero_products,
+        'status_zero_count': status_zero_count,
     }
 
     return render(request, 'products/products.html', context)
