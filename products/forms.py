@@ -1,7 +1,6 @@
 from django import forms
 from .models import Product, Category, Rating
 from .widgets import CustomClearableFileInput
-from django.core.exceptions import ValidationError
 
 
 class ProductForm(forms.ModelForm):
@@ -21,6 +20,14 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-dark rounded-0'
 
+    def clean_price(self):
+        price = self.cleaned_data.get('price')
+        if price is None:
+            raise forms.ValidationError("Price can't be None")
+        if price < 0:
+            raise forms.ValidationError("Price can't be negative")
+        return price
+    
 
 class RatingForm(forms.ModelForm):
     class Meta:

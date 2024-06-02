@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 
 STATUS = ((0, "In stock"), (1, "Out of stock"))
@@ -33,6 +34,16 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def clean(self):
+        if self.price is None:
+            raise ValidationError("Price can't be None")
+        if self.price < 0:
+            raise ValidationError("Price can't be negative")
+
+    def save(self, *args, **kwargs):
+        self.clean()  # Validate before saving
+        super().save(*args, **kwargs)
     
 
 class Rating(models.Model):
