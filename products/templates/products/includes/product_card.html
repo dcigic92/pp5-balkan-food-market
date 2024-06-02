@@ -1,0 +1,37 @@
+<div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+    <div class="card h-100 border-0">
+        {% if product.image %}
+        <a href="{% url 'product_details' product.id %}">
+            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+        </a>
+        {% else %}
+        <a href="{% url 'product_details' product.id %}">
+            <img class="card-img-top" src="https://balkan-food-market.s3.eu-north-1.amazonaws.com/media/no_img_available.jpg" alt="{{ product.name }}">
+        </a>
+        {% endif %}
+        <div class="card-body pb-0">
+            <p class="lead mb-0 font-weight-bold">{{ product.name }}</p>
+            <p class="text-muted font-weight-bold">Brand: {{ product.brand }}</p>
+        </div>
+        <div class="card-footer bg-white pt-0 border-0 text-left">
+            <div class="row">
+                <div class="col">
+                    <p class="mb-0 text-left font-weight-bold">Price: €{{ product.price }}</p>
+                    {% if product.average_rating %}
+                        <p class="text-muted mt-2">
+                            <i class="fas fa-star mr-1"></i>{{ product.average_rating|floatformat:1 }}
+                        </p>
+                    {% else %}
+                        <p class="text-muted mt-2">No Ratings</p>
+                    {% endif %}
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </small>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
