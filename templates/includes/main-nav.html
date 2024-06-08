@@ -18,10 +18,14 @@
             </div>
         </li>
 
-        <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="{% url 'about' %}" id="about-link">
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5 dropdown-toggle" href="#" id="about-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ABOUT
             </a>
+            <div class="dropdown-menu border-0 border-black" aria-labelledby="about-link">
+                <a href="{% url 'about' %}" class="dropdown-item">About</a>
+                <a href="{% url 'faqs' %}" class="dropdown-item">FAQs</a>
+            </div>
         </li>
 
         <li class="nav-item">
