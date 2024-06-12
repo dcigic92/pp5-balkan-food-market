@@ -1,14 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Faqs
+from .models import Faqs, AboutUs
 from .forms import FaqForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
-def about(request):
-    """ A view to return about page """
-
-    return render(request, 'about/about.html')
+def about_us(request):
+    """ A view to return About Us page """
+    
+    try:
+        about = AboutUs.objects.get()
+    except AboutUs.DoesNotExist:
+        about = None
+    
+    return render(request, 'about/about_us.html', {'about': about})
 
 
 def faq_list(request):
