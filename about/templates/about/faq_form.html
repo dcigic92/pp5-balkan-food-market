@@ -19,7 +19,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="text-right">
-                    <a class="btn btn-outline-dark rounded-0" href="{% url 'faqs' %}">Cancel</a>
+                    <a class="btn btn-outline-dark rounded-0" href="{% url 'faq_list' %}">Cancel</a>
                     <button class="btn btn-dark rounded-0" type="submit">{% if form.instance.pk %}Save Changes{% else %}Add FAQ{% endif %}</button>
                 </div>
             </form>
