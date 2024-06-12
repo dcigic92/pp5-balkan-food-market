@@ -11,14 +11,21 @@
             <hr>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <ul>
                 {% for faq in faqs %}
-                    <li>
+                    <li class="mb-3">
                         <h3>{{ faq.question }}</h3>
                         <p>{{ faq.answer }}</p>
-                    </li>
+                        {% if request.user.is_superuser %}
+                            <small class="ml-3">
+                                <a href="{% url 'faq_edit' faq.pk %}">Edit</a> | 
+                                <a class="text-danger" href="{% url 'faq_delete' faq.pk %}">Delete</a>
+                            </small>
+                        {% endif %}
+                    </li>     
                 {% endfor %}
             </ul>
         </div>
