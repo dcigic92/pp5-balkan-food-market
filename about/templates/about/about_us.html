@@ -13,7 +13,11 @@
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            {{ about.content|safe }}
+            {% if about %}
+                {{ about.content|linebreaks|safe }}
+            {% else %}
+                <p>No content available.</p>
+            {% endif %}
         </div>
     </div>
 </div>

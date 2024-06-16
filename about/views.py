@@ -7,12 +7,8 @@ from django.contrib.auth.decorators import login_required
 
 def about_us(request):
     """ A view to return About Us page """
-    
-    try:
-        about = AboutUs.objects.get()
-    except AboutUs.DoesNotExist:
-        about = None
-    
+
+    about = AboutUs.objects.first()
     return render(request, 'about/about_us.html', {'about': about})
 
 
