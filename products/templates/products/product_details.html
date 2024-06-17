@@ -63,7 +63,7 @@
                         <p class="lead mb-0 text-left mt-3">Product managment:</p>
                             <p class="ml-3">
                                 <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                <a href="#" class="text-danger delete-button" data-url="{% url 'delete_product' product.id %}">Delete</a>
                             </p>
                     {% endif %}
                     <p class="lead mb-0 text-left mt-3">Product description:</p>
@@ -127,6 +127,7 @@
             </div>
         </div>
     </div>
+    {% include 'includes/confirmation_modal.html' %}
 {% endblock %}
 
 {% block postloadjs %}

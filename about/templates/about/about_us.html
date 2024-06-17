@@ -3,29 +3,29 @@
 
 
 {% block content %}
-<div class="container mb-2">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="text-center mb-4">About Us</h2>
-            <hr>
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="text-center mb-4">About Us</h2>
+                <hr>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            {% if about %}
-                {{ about.content|linebreaks|safe }}
-                {% if request.user.is_superuser %}
-                    <small class="ml-3">
-                        <a href="{% url 'edit_about_us' %}">Edit</a> | 
-                        <a class="text-danger" href="{% url 'delete_about_us' %}">Delete</a>
-                    </small>
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                {% if about %}
+                    {{ about.content|linebreaks|safe }}
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_about_us' %}">Edit</a> | 
+                            <a href="#" class="text-danger delete-button" data-url="{% url 'delete_about_us' %}">Delete</a>
+                        </small>
+                    {% endif %}
+                {% else %}
+                    <p>No content available.</p>
                 {% endif %}
-            {% else %}
-                <p>No content available.</p>
-            {% endif %}
+            </div>
         </div>
     </div>
-</div>
-
+    {% include 'includes/confirmation_modal.html' %}
 {% endblock %}

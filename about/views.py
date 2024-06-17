@@ -127,5 +127,5 @@ def faq_delete(request, pk):
     
     faq = get_object_or_404(Faqs, pk=pk)
     faq.delete()
-    messages.success(request, 'FAQ deleted!')
+    messages.success(request, 'FAQ deleted successfully.')
     return redirect('faq_list')

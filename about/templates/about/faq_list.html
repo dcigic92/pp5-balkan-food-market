@@ -3,32 +3,33 @@
 
 
 {% block content %}
-<div class="container mb-2">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="text-center mb-4">FAQs</h2>
-            <hr>
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="text-center mb-4">FAQs</h2>
+                <hr>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <ul>
-                {% for faq in faqs %}
-                    <li class="mb-3">
-                        <h3>{{ faq.question }}</h3>
-                        <p>{{ faq.answer }}</p>
-                        {% if request.user.is_superuser %}
-                            <small class="ml-3">
-                                <a href="{% url 'faq_edit' faq.pk %}">Edit</a> | 
-                                <a class="text-danger" href="{% url 'faq_delete' faq.pk %}">Delete</a>
-                            </small>
-                        {% endif %}
-                    </li>     
-                {% endfor %}
-            </ul>
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <ul>
+                    {% for faq in faqs %}
+                        <li class="mb-3">
+                            <h3>{{ faq.question }}</h3>
+                            <p>{{ faq.answer }}</p>
+                            {% if request.user.is_superuser %}
+                                <small class="ml-3">
+                                    <a href="{% url 'faq_edit' faq.pk %}">Edit</a> | 
+                                    <a href="#" class="text-danger delete-button" data-url="{% url 'faq_delete' faq.pk %}">Delete</a>
+                                </small>
+                            {% endif %}
+                        </li>     
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+    {% include 'includes/confirmation_modal.html' %}
 {% endblock %}
