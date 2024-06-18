@@ -4,6 +4,11 @@ html {
 
 body {
     font-family: 'Roboto Condensed';
+    width: 100%;
+}
+
+.navbar {
+    width: 100%;
 }
 
 /* from Bulma */
