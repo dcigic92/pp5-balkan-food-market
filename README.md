@@ -98,6 +98,9 @@ In this project I used google's font ***Roboto Condensed***.
 - Option to subscribe to newsletter.
 - Option to save informations in user's profile.
 - Option to add, edit and delete products for store owner.
+- Option to add, edit and delete faqs for store owner.
+- Option to add, edit and delete about us content for store owner.
+- Option to hide from customers products out of stock and disable option to add them to shopping cart.
 
 ### Features left to implement
 
@@ -228,7 +231,8 @@ I followed Agile methodology for this project, fostering flexibility and regular
 |--|--|
 |User can choose by categories|Pass|
 |User can use search bar|Pass|
-|User can open about page|Pass|
+|User can open about us page|Pass|
+|User can open faqs page|Pass|
 |User can open open newsletter page|Pass|
 |User can open open home page|Pass|
 |User can open open my account|Pass|
@@ -254,9 +258,17 @@ I followed Agile methodology for this project, fostering flexibility and regular
 |User can update products in cart|Pass|
 |User can remove products from cart|Pass|
 |SuperUser can view products|Pass|
-|SuperUser can add products|Pass|
-|SuperUser can edit products|Pass|
-|SuperUser can delete products|Pass|
+|SuperUser can add product|Pass|
+|SuperUser can edit product|Pass|
+|SuperUser can delete product|Pass|
+|SuperUser can view about us content|Pass|
+|SuperUser can create about us content|Pass|
+|SuperUser can edit about us content|Pass|
+|SuperUser can delete about us content|Pass|
+|SuperUser can view faqs|Pass|
+|SuperUser can create faq|Pass|
+|SuperUser can edit faq|Pass|
+|SuperUser can delete faq|Pass|
 ---
 
 #### Subscription
@@ -278,6 +290,7 @@ I followed Agile methodology for this project, fostering flexibility and regular
 - [Cockta](https://images.squarespace-cdn.com/content/v1/603a9ae925c288203141fbe2/1615809956925-F7JXF4SUOW8OK7DYXFIH/08+New+Cockta+1.5+l.jpg?format=1500w)
 - [Domacica](https://www.croatianstore.ie/wp-content/uploads/2020/11/Biscuits-Kras-Domacica-Original-300g-1.png)
 - [Pasteta](https://stajedem.rs/images/proizvodi/750x750-2139)
+- [Tuna](https://fooddepottoronto.com/cdn/shop/products/DelamarisTunaSaladMexicana.png?v=1677972361&width=1206)
 
 ### Code
   
