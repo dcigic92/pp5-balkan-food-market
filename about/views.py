@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from .models import Faqs, AboutUs
 from .forms import FaqForm, AboutUsForm
 from django.contrib import messages
@@ -14,21 +15,22 @@ def about_us(request):
 
 @login_required
 def create_about_us(request):
-    """ Create about us"""
+    """ Create about us """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('about_us')
+        return redirect(reverse('about_us'))
     
+    # Check if an AboutUs object already exists
     if AboutUs.objects.exists():
         messages.error(request, 'Only one About Us instance is allowed.')
-        return redirect('about_us')
+        return redirect(reverse('about_us'))
     
     if request.method == 'POST':
         form = AboutUsForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'About Us content created successfully.')
-            return redirect('about_us')
+            return redirect(reverse('about_us'))
         else:
             messages.error(request, 'Failed to create About Us. Please ensure the form is valid.')
     else:
@@ -41,7 +43,7 @@ def edit_about_us(request):
     """ Edit about us"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('about_us')
+        return redirect(reverse('about_us'))
     
     about = get_object_or_404(AboutUs)
     if request.method == 'POST':
@@ -49,7 +51,7 @@ def edit_about_us(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'About Us content updated successfully.')
-            return redirect('about_us')
+            return redirect(reverse('about_us'))
         else:
             messages.error(request, 'Failed to edit About Us. Please ensure the form is valid.')
     else:
@@ -59,15 +61,15 @@ def edit_about_us(request):
 
 @login_required
 def delete_about_us(request):
-    """ Delete about us"""
+    """ Delete about us """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('about_us')
+        return redirect(reverse('about_us'))
     
     about = get_object_or_404(AboutUs)
     about.delete()
     messages.success(request, 'About Us content deleted successfully.')
-    return redirect('about_us')
+    return redirect(reverse('about_us'))
 
 
 def faq_list(request):
@@ -82,14 +84,14 @@ def faq_create(request):
     """ Create a new FAQ """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('faq_list')
+        return redirect(reverse('faq_list'))
     
     if request.method == 'POST':
         form = FaqForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added FAQ!')
-            return redirect('faq_list')
+            return redirect(reverse('faq_list'))
         else:
             messages.error(request, 'Failed to add FAQ. Please ensure the form is valid.')
     else:
@@ -102,7 +104,7 @@ def faq_edit(request, pk):
     """ Edit an existing FAQ """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('faq_list')
+        return redirect(reverse('faq_list'))
     
     faq = get_object_or_404(Faqs, pk=pk)
     if request.method == 'POST':
@@ -110,7 +112,7 @@ def faq_edit(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully edited FAQ!')
-            return redirect('faq_list')
+            return redirect(reverse('faq_list'))
         else:
             messages.error(request, 'Failed to edit FAQ. Please ensure the form is valid.')
     else:
@@ -123,9 +125,9 @@ def faq_delete(request, pk):
     """ Delete an existing FAQ """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('faq_list')
+        return redirect(reverse('faq_list'))
     
     faq = get_object_or_404(Faqs, pk=pk)
     faq.delete()
     messages.success(request, 'FAQ deleted successfully.')
-    return redirect('faq_list')
+    return redirect(reverse('faq_list'))

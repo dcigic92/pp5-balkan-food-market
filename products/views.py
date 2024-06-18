@@ -70,7 +70,7 @@ def all_products(request):
         'status_zero_count': status_zero_count,
     }
 
-    return render(request, 'products/products.html', context)
+    return render(request, 'products/all_products.html', context)
 
 
 def product_details(request, product_id):
@@ -98,8 +98,8 @@ def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('products')
-
+        return redirect(reverse('all_products'))
+    
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -123,7 +123,7 @@ def edit_product(request, product_id):
     """ Edit a product in the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('products')
+        return redirect(reverse('all_products'))
     
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -152,13 +152,13 @@ def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owner can do that.')
-        return redirect('products')
+        return redirect(reverse('all_products'))
     
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted successfully.')
 
-    return redirect(reverse('products'))
+    return redirect(reverse('all_products'))
 
 
 @login_required
@@ -174,7 +174,7 @@ def rate_product(request, product_id):
         messages.success(request, 'Your rating has been added.')
     
     # Redirect back to the product details page
-    return redirect('product_details', product_id=product_id)
+    return redirect(reverse('product_details', args=[product.id]))
 
 
 @login_required
@@ -186,4 +186,4 @@ def remove_rating(request, product_id):
         rating.delete()
         messages.success(request, 'Your rating has been removed.')
 
-    return redirect('product_details', product_id=product_id)
+    return redirect(reverse('product_details', args=[product.id]))
