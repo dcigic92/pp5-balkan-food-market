@@ -17,7 +17,7 @@
                 <ul>
                     {% for faq in faqs %}
                         <li class="mb-3">
-                            <h3>{{ faq.question }}</h3>
+                            <h4>{{ faq.question }}</h4>
                             <p>{{ faq.answer }}</p>
                             {% if request.user.is_superuser %}
                                 <small class="ml-3">
